@@ -11,10 +11,15 @@ interface WelcomePopupProps {
 
 export default function WelcomePopup({ isOpen, onClose }: WelcomePopupProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       const timer = setTimeout(() => setIsVisible(true), 100);
+      // Preload the image
+      const img = new window.Image();
+      img.src = "/popup.png";
+      img.onload = () => setImageLoaded(true);
       return () => clearTimeout(timer);
     } else {
       setIsVisible(false);
@@ -54,12 +59,17 @@ export default function WelcomePopup({ isOpen, onClose }: WelcomePopupProps) {
           {/* Logo */}
             <div className="flex justify-center mb-8">
                 <div className="w-40 h-40 flex items-center justify-center">
-                    <img
-                        src="/popup.png"
-                        alt="Basil Logo"
-                        className="w-full h-full object-contain"
-                        loading="eager"
-                    />
+                    {imageLoaded ? (
+                        <img
+                            src="/popup.png"
+                            alt="Basil Logo"
+                            className="w-full h-full object-contain"
+                        />
+                    ) : (
+                        <div className="w-40 h-40 bg-white/10 rounded-2xl flex items-center justify-center">
+                            <div className="text-white/60 text-4xl font-bold">B</div>
+                        </div>
+                    )}
                 </div>
             </div>
 

@@ -53,22 +53,21 @@ export default function WelcomePopup({ isOpen, onClose }: WelcomePopupProps) {
         <div className="p-10">
           {/* Logo */}
             <div className="flex justify-center mb-8">
-                <Image
-                    src="/popup.png"
-                    alt="Basil Logo"
-                    width={80}
-                    height={80}
-                    className="w-40 h-40"
-                    priority
-                    unoptimized
-                />
+                <div className="w-40 h-40 flex items-center justify-center">
+                    <img
+                        src="/popup.png"
+                        alt="Basil Logo"
+                        className="w-full h-full object-contain"
+                        loading="eager"
+                    />
+                </div>
             </div>
 
           {/* Welcome Text */}
           <div className="text-white space-y-5">
-            <p className="text-base text-white/90">Dear Vyapaar Owner,</p>
+            <p className="text-base text-white/90">Dear <span className="font-bold">Vyapaar Owner</span>,</p>
             
-            <h2 className="font-bold text-3xl text-white leading-tight">
+            <h2 className="text-base text-white leading-tight">
               Welcome to Basil
             </h2>
             

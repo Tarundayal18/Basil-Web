@@ -1,0 +1,7 @@
+Phone,Name,Email,GSTIN,Billing Address,Segment
+9876543210,John Doe,john.doe@example.com,27ABCDE1234F1Z5,"123 Main Street, Mumbai 400001",vip
+9876543211,Jane Smith,jane.smith@example.com,29FGHIJ5678K2L6,"456 Park Avenue, Delhi 110001",regular
+9876543212,Bob Johnson,bob.johnson@example.com,,"789 Oak Road, Bangalore 560001",regular
+9876543213,Alice Williams,alice.williams@example.com,33MNOPQ9012R3S7,"321 Elm Street, Chennai 600001",vip
+9876543214,Charlie Brown,,,"654 Pine Lane, Kolkata 700001",inactive
+

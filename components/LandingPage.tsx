@@ -6,6 +6,7 @@
  * Features: Hero, Second Hero, Features, Problems, Benefits, 3-Tier Features, Pricing, FAQ, Footer
  */
 
+import { useState, useEffect } from "react";
 import {
   HeroSection,
   SecondHeroSection,
@@ -17,6 +18,7 @@ import {
   FAQSection,
   Footer,
 } from "./landing";
+import WelcomePopup from "./landing/WelcomePopup";
 
 /**
  * Main landing page component that assembles all 9 sections.
@@ -24,8 +26,25 @@ import {
  * @returns JSX element containing the complete landing page
  */
 export default function LandingPage() {
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
+
+  useEffect(() => {
+  // Show popup after a short delay for better UX
+  const timer = setTimeout(() => {
+    setShowWelcomePopup(true);
+  }, 1500);
+  
+  return () => clearTimeout(timer);
+}, []);
+
+  const handleClosePopup = () => {
+    setShowWelcomePopup(false);
+  };
+
   return (
     <div className="min-h-screen">
+      {/* Welcome Popup */}
+      <WelcomePopup isOpen={showWelcomePopup} onClose={handleClosePopup} />
       {/* Hero Sections Wrapper with continuous gradient */}
       <div className="relative bg-white">
         {/* Decorative gradient background blobs - spans both hero sections */}

@@ -105,15 +105,7 @@ export default function WelcomePopup({ isOpen, onClose }: WelcomePopupProps) {
             </div>
           </div>
 
-          {/* OK Button */}
-          <div className="mt-10">
-            <button
-              onClick={onClose}
-              className="w-full bg-white hover:bg-white/90 text-[#4c499d] font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Let's Get Started
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>
